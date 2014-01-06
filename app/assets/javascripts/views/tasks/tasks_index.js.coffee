@@ -6,11 +6,21 @@ class Tasky.Views.TasksIndex extends Backbone.View
 	
 	initialize: ->
 		@collection.on('reset', @render, this)
+		@collection.on('add', @appendTask, this)
+		$('#tasks').addClass('hi')
 
 	render: ->
-		$(@el).html(@template(tasks: @collection))
+		$(@el).html(@template())
+		@collection.each(@appendTask)
 		this
+		
+	appendTask: (task) ->
+		view = new Tasky.Views.Task(model: task)
+		@$('#tasks').append(view.render().el)
 		
 	createTask: (event) ->
 		event.preventDefault()
-		@collection.create name: $('#new_task_name').val()
+		attributes = name: $('#new_task_name').val()
+		@collection.create attributes,
+			wait: true
+			success: -> $('#new_task')[0].reset()

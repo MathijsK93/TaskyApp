@@ -1,4 +1,4 @@
-<div class="panel panel-primary tasks">
+<div class="panel panel-primary task-panel">
   <div class="panel-heading">
     <h3 class="panel-title">Takenoverzicht</h3>
   </div>
@@ -8,12 +8,5 @@
 		<input type="submit" value="Toevoegen">
 	</form>
   </div>
-  <ul class="list-group">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
+	<ul id="tasks" class="list-group"></ul>
 </div>
-<%= @tasks.length %>
