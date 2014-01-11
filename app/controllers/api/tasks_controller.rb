@@ -4,7 +4,7 @@ class Api::TasksController < Api::BaseController
   respond_to :json
   
   def index
-    @tasks = Task.all
+    render json: Task.all
   end
   
   def show
@@ -15,7 +15,6 @@ class Api::TasksController < Api::BaseController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-
       if @task.save
         render json: @task, status: :created
       else
@@ -26,21 +25,18 @@ class Api::TasksController < Api::BaseController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
-    respond_to do |format|
-      if @task.update(task_params)
-        format.json { head :no_content }
-      else
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
+    if @task.update(task_params)
+      render json: @task, status: :ok
+    else
+      render json: @task.errors, status: :unprocessable_entity 
     end
   end
 
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
-    if @task.destroy
-      render json: { message: 'Task deleted', status: :ok}
-    end
+    @task.destroy
+    render json: { message: 'Task deleted', status: :ok}
   end
     
   private

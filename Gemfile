@@ -14,6 +14,7 @@ group :production do
 end
 
 gem 'devise'
+gem 'minitest'
 
 gem 'sass-rails', '~> 4.0.0.rc1'
 gem 'uglifier', '>= 1.3.0'
@@ -24,12 +25,15 @@ gem 'backbone-on-rails'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'capybara'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :test do
+  gem 'faker'
+  gem 'capybara'
   gem 'shoulda-matchers'
   gem 'guard-rspec'
+  gem 'launchy'
 end
   
 
