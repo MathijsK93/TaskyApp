@@ -1,8 +1,10 @@
 class Api::TasksController < Api::BaseController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  # before_filter :authenticate_user!
+  respond_to :json
   
   def index
-    render json: Task.all
+    @tasks = Task.all
   end
   
   def show
@@ -36,9 +38,8 @@ class Api::TasksController < Api::BaseController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
-    @task.destroy
-    respond_to do |format|
-      format.json { head :no_content }
+    if @task.destroy
+      render json: { message: 'Task deleted', status: :ok}
     end
   end
     

@@ -1,1 +1,2 @@
-<%= @task.get('name') %>
+<input class="toggle" type="checkbox"><%= @task.get('name') %>
+<span class="destroy pull-right">✖</span>

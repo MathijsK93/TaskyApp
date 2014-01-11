@@ -3,6 +3,33 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .task-panel {
-	max-width: 300px;
+	max-width: 340px;
 	margin: 120px auto;
+}
+.toggle {
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  -o-appearance:none;
+  appearance:none;
+  cursor: pointer;
+  &:after {
+	  -webkit-content:'✔';
+	  -moz-content:'✔';
+	  -o-content:'✔';
+	  content:'✔';
+	  margin-right: 5px;
+  }
+  &:hover, &:active {
+	  color:green;
+  }
+}
+.completed {
+	text-decoration: line-through;
+	.toggle {
+		color: green;
+	}
+}
+.destroy:hover{
+  color:red;
+  cursor: pointer;
 }

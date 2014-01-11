@@ -4,8 +4,12 @@
   </div>
   <div class="panel-body">
   	<form id="new_task">
-		<input type="text" name="name" id="new_task_name" autofocus>
-		<input type="submit" value="Toevoegen">
+	   <div class="input-group">
+	     <input type="text" class="form-control" name="name" id="new_task_name" autofocus>
+	     <span class="input-group-btn">
+	       <button class="btn btn-primary" type="button">Toevoegen</button>
+	     </span>
+	   </div>
 	</form>
   </div>
 	<ul id="tasks" class="list-group"></ul>
