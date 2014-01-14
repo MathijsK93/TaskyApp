@@ -4,7 +4,7 @@ class Api::TasksController < Api::BaseController
   respond_to :json
   
   def index
-    render json: Task.all
+    @tasks = Task.all
   end
   
   def show

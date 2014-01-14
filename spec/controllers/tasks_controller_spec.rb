@@ -2,7 +2,7 @@ require 'spec_helper'
 
 
 describe TasksController do
-  let(:valid_attributes) { { "name" => "MyString" } }
+  let(:attributes) { { "name" => "MyString" } }
 
 
   describe "GET #index" do
@@ -33,7 +33,40 @@ describe TasksController do
     it "assings a new Task to @task"
     it "renders the new template"
   end
-
+  
+  describe "POST create" do
+    describe "with valid params" do
+      it "creates a new Task" do
+        expect {
+          post :create, FactoryGirl.create(:task)
+        }.to change(Task, :count).by(1)
+      end
+  
+      it "assigns a newly created task as @task" do
+        post :create, {:task => FactoryGirl.create(:task)}
+        assigns(:task).should be_a(Task)
+        assigns(:task).should be_persisted
+      end
+    end
+  
+    describe "with invalid params" do
+      it "assigns a newly created but unsaved task as @task" do
+        # Trigger the behavior that occurs when invalid params are submitted
+        Task.any_instance.stub(:save).and_return(false)
+        post :create, {:task => { "name" => nil }}
+        assigns(:task).should be_a_new(Task)
+      end
+  
+      it "re-renders the 'new' template" do
+        # Trigger the behavior that occurs when invalid params are submitted
+        Task.any_instance.stub(:save).and_return(false)
+        post :create, {:task => { "name" => "invalid value" }}
+        response.should render_template("new")
+      end
+    end
+  end
+  
+    
 
   # 
   # 

@@ -7,7 +7,7 @@
 	   <div class="input-group">
 	     <input type="text" class="form-control" name="name" id="new_task_name" autofocus>
 	     <span class="input-group-btn">
-	       <button class="btn btn-primary" type="button">Toevoegen</button>
+	       <button class="btn btn-primary submit" type="button">Toevoegen</button>
 	     </span>
 	   </div>
 	</form>

@@ -24,7 +24,4 @@ describe Api::TasksController do
       expect(json['name']).to eq(task.name)
     end
   end
-  
-  
-
 end

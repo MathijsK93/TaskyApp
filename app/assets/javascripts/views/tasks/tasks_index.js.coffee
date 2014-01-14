@@ -2,7 +2,7 @@ class Tasky.Views.TasksIndex extends Backbone.View
 	template: JST['tasks/index']
 	
 	events:
-		'submit #new_task' : 'createTask'
+		'click .submit' : 'createTask'
 	
 	initialize: ->
 		@collection.on('reset', @render, this)
