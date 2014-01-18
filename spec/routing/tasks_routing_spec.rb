@@ -30,6 +30,5 @@ describe TasksController do
     it "routes to #destroy" do
       delete("/tasks/1").should route_to("tasks#destroy", :id => "1")
     end
-
   end
 end

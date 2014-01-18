@@ -25,7 +25,7 @@ gem 'backbone-on-rails'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem "factory_girl_rails", "~> 4.0"
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :test do
@@ -35,7 +35,6 @@ group :test do
   gem 'guard-rspec'
   gem 'launchy'
 end
-  
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
